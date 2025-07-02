@@ -1,8 +1,10 @@
 package com.taskmanagement.controller;
 
 import com.taskmanagement.domain.models.TaskModel;
+import com.taskmanagement.dto.TaskRequestDTO;
 import com.taskmanagement.service.TaskService;
 import jakarta.inject.Inject;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -16,8 +18,8 @@ public class TaskController {
     TaskService taskService;
 
     @POST
-    public Response createTask(TaskModel task) {
-        TaskModel created = taskService.create(task);
+    public Response createTask(@Valid TaskRequestDTO dto) {
+        TaskModel created = taskService.create(new TaskModel(dto.title, dto.description, dto.status));
         return Response.status(Response.Status.CREATED).entity(created).build();
     }
 
