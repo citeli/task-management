@@ -51,7 +51,6 @@ public class TaskService {
         return true;
     }
 
-
     public List<TaskModel> listAll() {
         return taskRepository.listAll();
     }

@@ -3,6 +3,7 @@ package com.taskmanagement.controller;
 import com.taskmanagement.domain.models.TaskModel;
 import com.taskmanagement.dto.TaskRequestDTO;
 import com.taskmanagement.service.TaskService;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
@@ -24,6 +25,7 @@ public class TaskController {
     }
 
     @GET
+    @RolesAllowed("admin")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listAllTasks() {
         List<TaskModel> tasks = taskService.listAll();
