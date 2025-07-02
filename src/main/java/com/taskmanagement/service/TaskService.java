@@ -1,5 +1,6 @@
 package com.taskmanagement.service;
 
+import com.taskmanagement.domain.enums.Status;
 import com.taskmanagement.domain.models.TaskModel;
 import com.taskmanagement.exceptions.TaskNotFoundException;
 import com.taskmanagement.repository.TaskRepository;
@@ -58,5 +59,9 @@ public class TaskService {
     public Optional<TaskModel> findById(Long id) {
         return Optional.ofNullable(taskRepository.findByIdOptional(id)
                 .orElseThrow(() -> new TaskNotFoundException(id)));
+    }
+
+    public List<TaskModel> findByStatus(Status status) {
+        return taskRepository.findByStatus(status);
     }
 }

@@ -1,5 +1,6 @@
 package com.taskmanagement.controller;
 
+import com.taskmanagement.domain.enums.Status;
 import com.taskmanagement.domain.models.TaskModel;
 import com.taskmanagement.dto.TaskRequestDTO;
 import com.taskmanagement.service.TaskService;
@@ -30,6 +31,15 @@ public class TaskController {
     public Response listAllTasks() {
         List<TaskModel> tasks = taskService.listAll();
         return Response.ok(tasks).build();
+    }
+
+    @GET
+    @Path("/completed")
+    @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed("admin")
+    public Response listCompletedTasks() {
+        List<TaskModel> completedTasks = taskService.findByStatus(Status.Completed);
+        return Response.ok(completedTasks).build();
     }
 
     @GET
