@@ -3,6 +3,7 @@ package com.taskmanagement.infrastructure.startup;
 import com.taskmanagement.domain.enums.Status;
 import com.taskmanagement.domain.models.TaskModel;
 import com.taskmanagement.repository.TaskRepository;
+import io.quarkus.arc.profile.IfBuildProfile;
 import io.quarkus.runtime.Startup;
 import io.quarkus.runtime.StartupEvent;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -12,6 +13,7 @@ import jakarta.transaction.Transactional;
 
 @Startup
 @ApplicationScoped
+@IfBuildProfile("prod")
 public class TaskDataSeeder {
     @Inject
     TaskRepository taskRepository;

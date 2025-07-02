@@ -13,5 +13,4 @@ public class TaskRepository implements PanacheRepository<TaskModel> {
     public List<TaskModel> findByStatus(Status status) {
         return list("status", status);
     }
-
 }

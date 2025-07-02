@@ -64,5 +64,4 @@ public class TaskController {
                 ? Response.ok(result.get()).build()
                 : Response.status(Response.Status.NOT_FOUND).build();
     }
-
 }
