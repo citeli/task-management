@@ -1,6 +1,7 @@
 package com.taskmanagement.service;
 
 import com.taskmanagement.domain.models.TaskModel;
+import com.taskmanagement.exceptions.TaskNotFoundException;
 import com.taskmanagement.repository.TaskRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -56,6 +57,7 @@ public class TaskService {
     }
 
     public Optional<TaskModel> findById(Long id) {
-        return taskRepository.findByIdOptional(id);
+        return Optional.ofNullable(taskRepository.findByIdOptional(id)
+                .orElseThrow(() -> new TaskNotFoundException(id)));
     }
 }
