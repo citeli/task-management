@@ -18,23 +18,23 @@ public class TaskService {
 
     @Transactional
     public TaskModel create(TaskModel task) {
-        task.id = null;
+        task.setId(null);
         taskRepository.persist(task);
         return task;
     }
 
     @Transactional
     public Optional<TaskModel> update(TaskModel updatedTask) {
-        Optional<TaskModel> existing = taskRepository.findByIdOptional(updatedTask.id);
+        Optional<TaskModel> existing = taskRepository.findByIdOptional(updatedTask.getId());
 
         if (existing.isEmpty()) {
             return Optional.empty();
         }
 
         TaskModel task = existing.get();
-        task.title = updatedTask.title;
-        task.description = updatedTask.description;
-        task.status = updatedTask.status;
+        task.setTitle(updatedTask.getTitle());
+        task.setDescription(updatedTask.getDescription());
+        task.setStatus(updatedTask.getStatus());
 
         return Optional.of(task);
     }

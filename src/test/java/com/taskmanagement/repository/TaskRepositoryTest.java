@@ -19,10 +19,7 @@ class TaskRepositoryTest {
     @Test
     @Transactional
     void testFindByStatus_ShouldReturnOnlyCompletedTasks() {
-        taskRepository.persist(new TaskModel("Task 1", "Description 1", Status.Completed));
-        taskRepository.persist(new TaskModel("Task 2", "Description 2", Status.Completed));
-        taskRepository.persist(new TaskModel("Task 3", "Description 3", Status.ToDo));
-
+        //objects seeded on TaskDataSeeder
         List<TaskModel> completedTasks = taskRepository.findByStatus(Status.Completed);
 
         Assertions.assertEquals(2, completedTasks.size());
@@ -33,7 +30,6 @@ class TaskRepositoryTest {
     @Transactional
     void testFindByStatus_ShouldReturnEmptyListWhenNoMatch() {
         List<TaskModel> inProgressTasks = taskRepository.findByStatus(Status.InProgress);
-
         Assertions.assertTrue(inProgressTasks.isEmpty());
     }
 }
