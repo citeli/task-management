@@ -54,12 +54,12 @@ Use this header in your requests: Authorization: Basic YWRtaW46YWRtaW4xMjM=
 
 | Method | Endpoint             | Description                                | Response                      | Auth Required |
 |--------|----------------------|--------------------------------------------|-------------------------------|---------------|
-| POST   | `/tasks`             | Create a new task                          | `201 Created` + Task object   | ✅             |
+| POST   | `/tasks`             | Create a new task                          | `201 Created` + Task object   | ❌             |
 | GET    | `/tasks`             | List all tasks                             | `200 OK` + array of tasks     | ✅             |
 | GET    | `/tasks/completed`   | List tasks with status = Completed         | `200 OK` + filtered tasks     | ✅             |
 | GET    | `/tasks/{id}`        | Get a task by its ID                       | `200 OK` or `404 Not Found`   | ❌             |
 | PUT    | `/tasks/{id}`        | Update a task                              | `200 OK` or `404 Not Found`   | ❌             |
-| DELETE | `/tasks/{id}`        | Delete a task by ID                        | `204 No Content` or `404`     | ✅             |
+| DELETE | `/tasks/{id}`        | Delete a task by ID                        | `204 No Content` or `404`     | ❌             |
 
 ## 📄 Request Body — TaskRequestDTO
 
