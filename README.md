@@ -43,9 +43,10 @@ A lightweight task management REST service built with Quarkus, offering CRUD fun
 ## 🔐 Authentication
 
 Protected endpoints require **HTTP Basic Authentication** with the following credentials:
+```text
 Username: admin
 Password: admin123
-
+```
 Use this header in your requests: Authorization: Basic YWRtaW46YWRtaW4xMjM=
 
 (The value above is the Base64 encoding of `admin:admin123`)
