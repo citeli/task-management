@@ -37,7 +37,7 @@ A lightweight task management REST service built with Quarkus, offering CRUD fun
 - Task fields: `title`, `description`, and `status` (`ToDo`, `InProgress`, `Completed`).
 - Uses **Quarkus**, **Hibernate + Panache**, and **H2 in-memory database**.
 - A startup **data seeder** populates initial tasks if the database is empty.
-- **Basic Auth** protects listing and deletion routes.
+- **Basic Auth** protects listing and get completed tasks routes.
 - Input is validated via DTO (`@Valid`), and enum values are checked.
 
 ## 🔐 Authentication
@@ -47,7 +47,10 @@ Protected endpoints require **HTTP Basic Authentication** with the following cre
 Username: admin
 Password: admin123
 ```
-Use this header in your requests: Authorization: Basic YWRtaW46YWRtaW4xMjM=
+Use this header in your requests: 
+```text
+Authorization: Basic YWRtaW46YWRtaW4xMjM=
+```
 
 (The value above is the Base64 encoding of `admin:admin123`)
 
