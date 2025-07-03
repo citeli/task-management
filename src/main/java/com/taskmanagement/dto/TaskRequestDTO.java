@@ -12,4 +12,12 @@ public class TaskRequestDTO {
     public String description;
 
     public Status status;
+
+    public TaskRequestDTO(){}
+
+    public TaskRequestDTO(String title, String description, Status status) {
+        this.title = title;
+        this.description = description;
+        this.status = status;
+    }
 }

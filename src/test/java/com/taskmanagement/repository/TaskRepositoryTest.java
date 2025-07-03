@@ -19,10 +19,10 @@ class TaskRepositoryTest {
     @Test
     @Transactional
     void testFindByStatus_ShouldReturnOnlyCompletedTasks() {
-        //objects seeded on TaskDataSeeder
+        //objects were seeded on TaskDataSeeder
         List<TaskModel> completedTasks = taskRepository.findByStatus(Status.Completed);
 
-        Assertions.assertEquals(2, completedTasks.size());
+        Assertions.assertEquals(4, completedTasks.size());
         Assertions.assertTrue(completedTasks.stream().allMatch(task -> task.getStatus() == Status.Completed));
     }
 
