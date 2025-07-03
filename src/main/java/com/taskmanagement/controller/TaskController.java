@@ -64,4 +64,18 @@ public class TaskController {
                 ? Response.ok(result.get()).build()
                 : Response.status(Response.Status.NOT_FOUND).build();
     }
+
+    @DELETE
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteTask(@PathParam("id") Long id) {
+        boolean deleted = taskService.delete(id);
+        if (deleted) {
+            return Response.noContent().build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("Task with ID " + id + " not found")
+                    .build();
+        }
+    }
 }
