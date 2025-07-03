@@ -112,6 +112,9 @@ This interface provides:
 - Request and response schemas
 - The ability to test API calls directly from the browser
 
+![Swagger UI Screenshot](https://raw.githubusercontent.com/citeli/task-management/refs/heads/dev/assets/swagger.png)
+
+
 > Note: Authentication is required for protected endpoints — use the "Authorize" button in the UI.
 
 ## ⚙️ Configuration & Seeder
