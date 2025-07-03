@@ -127,9 +127,8 @@ quarkus.hibernate-orm.database.generation=drop-and-create
 
 
 - On startup, a **seeder class** checks if the database is empty. If so, it populates it with 3 predefined tasks:
-- One with status `ToDo`
 - One with status `InProgress`
-- One with status `Completed`
+- Two with status `Completed`
 
 - This ensures the API has usable data for development or demonstration after each restart.
 

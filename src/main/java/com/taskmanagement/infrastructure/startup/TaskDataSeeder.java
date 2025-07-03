@@ -24,8 +24,8 @@ public class TaskDataSeeder {
 
         if (taskRepository.count() == 0) {
             taskRepository.persist(new TaskModel("Task 1 title", "task 1 description", Status.ToDo));
+            taskRepository.persist(new TaskModel("Task 2 title", "task 2 description", Status.Completed));
             taskRepository.persist(new TaskModel("Task 3 title", "task 3 description", Status.Completed));
-            taskRepository.persist(new TaskModel("Task 4 title", "task 4 description", Status.Completed));
 
             System.out.println("[TaskDataSeeder] Seeded");
         }else{
